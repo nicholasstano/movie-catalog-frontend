@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import MovieContainer from './containers/MovieContainer';
 
 function App() {
   return (
-    <div className="App">
-      Movie Catalog Test
+    <div>
+      <MovieContainer />
     </div>
   );
 }
