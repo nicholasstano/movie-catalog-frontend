@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Movie Catalog
+      Movie Catalog Test
     </div>
   );
 }
