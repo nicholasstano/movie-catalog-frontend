@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import MovieCard from '../components/MovieCard'
+import { connect } from 'react-redux'
+import MovieCard from '../components/movieCard/MovieCard'
+import { getMovies } from '../components/actions/movieActions'
 
-const MovieContainer = () => {
-
-    const [movies, setMovies] = useState([])
+const MovieContainer = (props) => {
 
     useEffect(() => {
-        fetch(`http://localhost:3000/movies`)
-            .then(res => res.json())
-            .then(result => {
-                setMovies([...result])
-            })
-    }, [movies])
+        props.getMovies()
+    }, [])
 
-    let allMovies = movies.map(movie => <MovieCard key={movie._id} movie={movie} />)
+    let allMovies = props.movies.movies.map(movie => <MovieCard key={movie._id} movie={movie} />)
 
     return (
         <div>
@@ -23,4 +19,8 @@ const MovieContainer = () => {
     )
 }
 
-export default MovieContainer
+const mapStateToProps = state => ({
+    movies: state.movies
+})
+
+export default connect(mapStateToProps, { getMovies })(MovieContainer)
