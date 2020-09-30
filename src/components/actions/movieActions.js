@@ -1,4 +1,4 @@
-import { GET_MOVIES } from "./types"
+import { GET_MOVIES, ADD_MOVIE } from "./types"
 
 export const getMovies = () => dispatch => {
     fetch(`http://localhost:8080/movies`)
@@ -6,5 +6,22 @@ export const getMovies = () => dispatch => {
         .then(movies => dispatch({
             type: GET_MOVIES,
             payload: movies
+        }))
+}
+
+export const addMovie = (newMovie) => dispatch => {
+    console.log(newMovie)
+    fetch(`http://localhost:8080/movies`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+    })
+        .then(res => res.json())
+        .then(movie => dispatch({
+            type: ADD_MOVIE,
+            payload: movie
         }))
 }

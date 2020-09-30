@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import DatePicker from "react-datepicker";
+import { addMovie } from '../actions/movieActions'
+import './movieform.css'
 
-const MovieForm = () => {
+const MovieForm = (props) => {
 
     const [newMovieState, setNewMovieState] = useState({
         dates: [],
@@ -14,12 +17,13 @@ const MovieForm = () => {
         rottentomatoes: '',
     })
 
+    const [singleDate, setSingleDate] = useState('')
+
     const [startDate, setStartDate] = useState(new Date());
 
     const handleChange = (event) => {
         if (event.target.name === 'yearReleased') {
             let year = parseInt(event.target.value)
-            console.log(year)
             setNewMovieState({ ...newMovieState, [event.target.name]: year })
         }
         else {
@@ -27,11 +31,43 @@ const MovieForm = () => {
         }
     }
 
+    const handleDateChange = (event) => {
+        setSingleDate(event.target.value)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const newMovie = {
+            dates: [...newMovieState.dates],
+            title: newMovieState.title,
+            director: newMovieState.director,
+            owned: newMovieState.owned,
+            imdb: newMovieState.imdb,
+            wiki: newMovieState.wiki,
+            rottentomatoes: newMovieState.rottentomatoes,
+            yearReleased: newMovieState.yearReleased,
+        }
+        props.addMovie(newMovie)
+        setNewMovieState({
+            dates: [],
+            title: '',
+            director: '',
+            yearReleased: 0,
+            owned: false,
+            imdb: '',
+            wiki: '',
+            rottentomatoes: '',
+        })
+    }
+
     const addDate = () => {
-        let month = startDate.getMonth() + 1
-        let day = startDate.getDate()
-        let year = startDate.getFullYear()
-        setNewMovieState({ ...newMovieState, dates: [...newMovieState.dates, `${month}/${day}/${year}`] })
+        if (singleDate === '') {
+            alert("Enter a date in the format 5/9/2020")
+        }
+        else {
+            setNewMovieState({ ...newMovieState, dates: [...newMovieState.dates, singleDate] })
+            setSingleDate('')
+        }
     }
 
     const toggleOwn = (event) => {
@@ -41,13 +77,15 @@ const MovieForm = () => {
 
     console.log(newMovieState)
     return (
-        <div>
-            <DatePicker
+        <div className="form">
+            {/* <DatePicker
                 selected={startDate}
                 onChange={date => setStartDate(date)}
-            />
+            /> */}
+            <input type="text" name="singleDate" value={singleDate} placeholder="Ex: 5/9/2020" onChange={handleDateChange} />
+
             <button onClick={addDate}>Add Date Watched</button>
-            <form className="">
+            <form className="" onSubmit={handleSubmit}>
                 <ul>
                     <input type="text" name="title" value={newMovieState.title} placeholder="title" onChange={handleChange} />
                 </ul>
@@ -78,4 +116,8 @@ const MovieForm = () => {
     )
 }
 
-export default MovieForm
+const mapStateToProps = state => ({
+    movies: state.movies
+})
+
+export default connect(mapStateToProps, { addMovie })(MovieForm)

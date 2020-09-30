@@ -5,9 +5,7 @@ import { getMovies } from '../components/actions/movieActions'
 
 const MovieContainer = (props) => {
 
-    useEffect(() => {
-        props.getMovies()
-    }, [])
+    useEffect(props.getMovies, [])
 
     let allMovies = props.movies.movies.map(movie => <MovieCard key={movie._id} movie={movie} />)
 
