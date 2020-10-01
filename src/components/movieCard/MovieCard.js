@@ -31,7 +31,6 @@ const MovieCard = (props) => {
                 month = dateType.getMonth() + 1
                 year = dateType.getFullYear()
                 dateInMonth = dateType.getDate()
-                console.log(month, year, dateInMonth)
                 stringOfDates = stringOfDates + `${month}/${dateInMonth}/${year}, `
             })
             return stringOfDates.substring(0, stringOfDates.length - 2);
