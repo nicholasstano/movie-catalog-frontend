@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import MovieCard from '../components/movieCard/MovieCard'
 import { getMovies } from '../components/actions/movieActions'
 import './MovieContainer.scss'
-import { backendUrl, localUrl } from '../config'
 
 const MovieContainer = (props) => {
 

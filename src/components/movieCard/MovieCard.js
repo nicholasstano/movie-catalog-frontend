@@ -40,6 +40,8 @@ const MovieCard = (props) => {
         }
     }
 
+    console.log(returnDates())
+
     return (
         <div className="card">
             <h1>{title} ({yearReleased})</h1>

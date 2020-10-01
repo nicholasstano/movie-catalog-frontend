@@ -72,13 +72,8 @@ const MovieForm = (props) => {
         setNewMovieState({ ...newMovieState, owned: !newMovieState.owned })
     }
 
-    console.log(newMovieState)
     return (
         <div className="form">
-            {/* <DatePicker
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-            /> */}
             <input type="text" name="singleDate" value={singleDate} placeholder="Ex: 5/9/2020" onChange={handleDateChange} />
 
             <button onClick={addDate}>Add Date Watched</button>
