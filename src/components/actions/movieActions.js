@@ -1,7 +1,13 @@
+import { backendUrl } from "../../config"
 import { GET_MOVIES, ADD_MOVIE } from "./types"
 
 export const getMovies = () => dispatch => {
-    fetch('/movies')
+    fetch('/movies', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    })
         .then(response => response.json())
         .then(movies => dispatch({
             type: GET_MOVIES,
