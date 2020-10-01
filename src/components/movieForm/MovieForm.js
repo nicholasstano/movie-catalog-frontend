@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import DatePicker from "react-datepicker";
 import { addMovie } from '../actions/movieActions'
 import './movieform.css'
 
@@ -18,8 +17,6 @@ const MovieForm = (props) => {
     })
 
     const [singleDate, setSingleDate] = useState('')
-
-    const [startDate, setStartDate] = useState(new Date());
 
     const handleChange = (event) => {
         if (event.target.name === 'yearReleased') {
