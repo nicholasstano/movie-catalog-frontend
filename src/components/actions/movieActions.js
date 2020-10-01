@@ -1,11 +1,12 @@
-import { backendUrl } from "../../config"
+import { backendUrl, localUrl } from "../../config"
 import { GET_MOVIES, ADD_MOVIE } from "./types"
 
 export const getMovies = () => dispatch => {
-    fetch('/movies', {
+    fetch(`https://cors-anywhere.herokuapp.com/${backendUrl}`, {
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': "*"
         }
     })
         .then(response => response.json())
