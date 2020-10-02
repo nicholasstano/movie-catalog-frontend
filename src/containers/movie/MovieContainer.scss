@@ -1,0 +1,14 @@
+.movieList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 40px;
+
+    @media (min-width: 900px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, auto-fill));
+        align-items: center;
+        justify-content: space-between;
+    }
+}

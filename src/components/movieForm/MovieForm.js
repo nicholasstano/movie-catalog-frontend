@@ -57,8 +57,6 @@ const MovieForm = (props) => {
         })
     }
 
-    console.log(newMovieState)
-
     const addDate = () => {
         if (singleDate === '') {
             alert("Enter a date in the format 5/9/2020")

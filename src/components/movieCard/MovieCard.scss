@@ -3,14 +3,14 @@ $point: #484848;
 $point-light: lighten($point, 5%);
 
 $ratio: 1.618;
-$card_width: 250px;
-$card_height: 350px;
-$card_padding: 20px;
+$card_width: 138px;
+$card_height: 150px;
+$card_padding: 5px;
 $card-bgcolor: white;
-$card_margin: 25px;
+$card_margin: 7px;
 $card_round: 10px;
 $card-shadow: 10px 10px 0px 0px $point-light;
-$card-padding-basis: 15px;
+$card-padding-basis: 5px;
 $card_head_padding: 0px 0px $card-padding-basis 0px;
 
 *{
@@ -43,7 +43,7 @@ body{
     margin: 0px;
     padding: $card_head_padding;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 14px;
+    font-size: 10px;
     color: $black;
   }
   
@@ -59,18 +59,20 @@ body{
     border: none;
     border-radius: 5px;
     background-color: $point;
-    width: 50%;
-    margin: 10px auto;
-    padding: 10px 30px;
+    width: 75%;
+    margin: 5px auto;
+    padding: 5px 10px;
     color: white;
     font-family: 'Noto Sans KR', sans-serif;
     text-transform: uppercase;
+    font-size: 8px;
   }
 
   .datesWatched {
       padding: 2px 0px;
-      font-size: 8px;
+      font-size: 6px;
       font-family: 'Noto Sans KR', sans-serif;
+      height: 30px;
   }
   
 }

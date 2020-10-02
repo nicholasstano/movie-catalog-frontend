@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import MovieCard from '../components/movieCard/MovieCard'
-import { getMovies } from '../components/actions/movieActions'
+import MovieCard from '../../components/movieCard/MovieCard'
+import { getMovies } from '../../components/actions/movieActions'
 import './MovieContainer.scss'
 
 const MovieContainer = (props) => {

@@ -42,8 +42,9 @@ const MovieCard = (props) => {
 
     return (
         <div className="card">
-            <h1>{title} ({yearReleased})</h1>
+            <h1>{title}</h1>
             <h1>{director}</h1>
+            <h1>({yearReleased})</h1>
             <h1>
                 {owned ?
                     <><CheckBoxOutlinedIcon /></>
