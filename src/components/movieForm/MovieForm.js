@@ -57,6 +57,8 @@ const MovieForm = (props) => {
         })
     }
 
+    console.log(newMovieState)
+
     const addDate = () => {
         if (singleDate === '') {
             alert("Enter a date in the format 5/9/2020")
@@ -78,6 +80,9 @@ const MovieForm = (props) => {
 
             <button onClick={addDate}>Add Date Watched</button>
             <form className="" onSubmit={handleSubmit}>
+                {newMovieState.dates.map(date =>
+                    <ul style={{ color: 'white' }}>{date}</ul>
+                )}
                 <ul>
                     <input type="text" name="title" value={newMovieState.title} placeholder="title" onChange={handleChange} />
                 </ul>

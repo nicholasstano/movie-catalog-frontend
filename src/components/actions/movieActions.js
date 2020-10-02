@@ -2,7 +2,7 @@ import { backendUrl } from "../../config"
 import { GET_MOVIES, ADD_MOVIE } from "./types"
 
 export const getMovies = () => dispatch => {
-    fetch(`https://cors-anywhere.herokuapp.com/${backendUrl}`, {
+    fetch(backendUrl, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -17,7 +17,7 @@ export const getMovies = () => dispatch => {
 }
 
 export const addMovie = (newMovie) => dispatch => {
-    fetch(`https://cors-anywhere.herokuapp.com/${backendUrl}`, {
+    fetch(backendUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

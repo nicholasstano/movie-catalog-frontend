@@ -31,7 +31,7 @@ const MovieCard = (props) => {
                 month = dateType.getMonth() + 1
                 year = dateType.getFullYear()
                 dateInMonth = dateType.getDate()
-                stringOfDates = stringOfDates + `${month}/${dateInMonth}/${year}, `
+                return stringOfDates = stringOfDates + `${month}/${dateInMonth}/${year}, `
             })
             return stringOfDates.substring(0, stringOfDates.length - 2);
         }
@@ -39,8 +39,6 @@ const MovieCard = (props) => {
             return `Have not watched recently or ever.`
         }
     }
-
-    console.log(returnDates())
 
     return (
         <div className="card">
