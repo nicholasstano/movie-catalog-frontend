@@ -38,15 +38,28 @@ body{
   -webkit-box-shadow: $card-shadow;
     box-shadow: $card-shadow;
   border-radius: $card_round;
-  
+
   h1 {
     margin: 0px;
+    height: 25px;
     padding: $card_head_padding;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 10px;
     color: $black;
   }
   
+  .imageIcons {
+    margin: 5px;
+    display: grid;
+    grid-template-columns: 42px 42px 42px;
+    justify-items: center;
+    justify-content: space-between;
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  } 
+
   hr{
     display: block;
     border: none;
@@ -70,9 +83,9 @@ body{
 
   .datesWatched {
       padding: 2px 0px;
-      font-size: 6px;
+      font-size: 9px;
       font-family: 'Noto Sans KR', sans-serif;
-      height: 30px;
+      height: 45px;
   }
   
 }

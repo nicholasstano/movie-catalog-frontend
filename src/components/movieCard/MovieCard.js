@@ -1,6 +1,7 @@
 import React from 'react'
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import CheckBoxOutlineBlankOutlinedIcon from '@material-ui/icons/CheckBoxOutlineBlankOutlined';
+import images from '../../images'
 import './MovieCard.scss'
 
 const MovieCard = (props) => {
@@ -42,7 +43,7 @@ const MovieCard = (props) => {
 
     return (
         <div className="card">
-            <h1>{title}</h1>
+            <h1 className="cardTitle">{title}</h1>
             <h1>{director}</h1>
             <h1>({yearReleased})</h1>
             <h1>
@@ -53,9 +54,11 @@ const MovieCard = (props) => {
                 }
             </h1>
             <hr />
-            <button onClick={rottenTomatoesRedirect}>rotten tomatoes</button>
-            <button onClick={imdbRedirect}>imdb</button>
-            <button onClick={wikiRedirect}>wiki</button>
+            <div className="imageIcons">
+                <img src={images.imdb} alt='ImdbRedirect' onClick={imdbRedirect} />
+                <img src={images.rottentomatoes} alt='RottenTomatoesRedirect' onClick={rottenTomatoesRedirect} />
+                <img src={images.wikipedia} alt='WikipediaRedirect' onClick={wikiRedirect} />
+            </div>
             <hr />
             <div className="datesWatched">{returnDates()}</div>
         </div >

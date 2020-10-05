@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addMovie } from '../actions/movieActions'
 import './movieform.css'
@@ -45,16 +46,7 @@ const MovieForm = (props) => {
             yearReleased: newMovieState.yearReleased,
         }
         props.addMovie(newMovie)
-        setNewMovieState({
-            dates: [],
-            title: '',
-            director: '',
-            yearReleased: 0,
-            owned: false,
-            imdb: '',
-            wiki: '',
-            rottentomatoes: '',
-        })
+        props.history.push('/')
     }
 
     const addDate = () => {
@@ -115,4 +107,4 @@ const mapStateToProps = state => ({
     movies: state.movies
 })
 
-export default connect(mapStateToProps, { addMovie })(MovieForm)
+export default withRouter(connect(mapStateToProps, { addMovie })(MovieForm))
