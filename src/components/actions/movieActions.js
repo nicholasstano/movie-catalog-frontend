@@ -1,5 +1,6 @@
 import { backendUrl } from "../../config"
 import { GET_MOVIES, ADD_MOVIE } from "./types"
+import util from '../../util'
 
 export const getMovies = () => dispatch => {
     fetch(backendUrl, {
@@ -12,7 +13,7 @@ export const getMovies = () => dispatch => {
         .then(response => response.json())
         .then(movies => dispatch({
             type: GET_MOVIES,
-            payload: movies
+            payload: util.alphabetizeMovies(movies)
         }))
 }
 

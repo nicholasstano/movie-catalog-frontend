@@ -29,9 +29,9 @@ const MovieCard = (props) => {
             let dateInMonth;
             dates.map(date => {
                 dateType = new Date(date)
-                month = dateType.getMonth() + 1
-                year = dateType.getFullYear()
-                dateInMonth = dateType.getDate()
+                month = dateType.getUTCMonth() + 1
+                year = dateType.getUTCFullYear()
+                dateInMonth = dateType.getUTCDate()
                 return stringOfDates = stringOfDates + `${month}/${dateInMonth}/${year}, `
             })
             return stringOfDates.substring(0, stringOfDates.length - 2);
@@ -43,16 +43,18 @@ const MovieCard = (props) => {
 
     return (
         <div className="card">
-            <h1 className="cardTitle">{title}</h1>
-            <h1>{director}</h1>
-            <h1>({yearReleased})</h1>
-            <h1>
-                {owned ?
-                    <><CheckBoxOutlinedIcon /></>
-                    :
-                    <><CheckBoxOutlineBlankOutlinedIcon /></>
-                }
-            </h1>
+            <div className="">
+                <h1 className="cardTitle">{title}</h1>
+                <h1>({yearReleased})</h1>
+                <h1>{director}</h1>
+                <h1>
+                    {owned ?
+                        <><CheckBoxOutlinedIcon /></>
+                        :
+                        <><CheckBoxOutlineBlankOutlinedIcon /></>
+                    }
+                </h1>
+            </div>
             <hr />
             <div className="imageIcons">
                 <img src={images.imdb} alt='ImdbRedirect' onClick={imdbRedirect} />

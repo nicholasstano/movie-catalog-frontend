@@ -9,7 +9,7 @@ $card_padding: 5px;
 $card-bgcolor: white;
 $card_margin: 7px;
 $card_round: 10px;
-$card-shadow: 10px 10px 0px 0px $point-light;
+$card-shadow: 5px 5px 0px 0px $point-light;
 $card-padding-basis: 5px;
 $card_head_padding: 0px 0px $card-padding-basis 0px;
 
@@ -39,14 +39,14 @@ body{
     box-shadow: $card-shadow;
   border-radius: $card_round;
 
-  h1 {
-    margin: 0px;
-    height: 25px;
-    padding: $card_head_padding;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 10px;
-    color: $black;
-  }
+    h1 {
+      margin: 0px;
+      height: 30px;
+      padding: $card_head_padding;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
   
   .imageIcons {
     margin: 5px;

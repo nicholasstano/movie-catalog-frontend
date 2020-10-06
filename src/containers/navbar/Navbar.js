@@ -1,17 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getMovies } from '../../components/actions/movieActions'
 import './Navbar.scss'
 
-const Navbar = () => {
+const Navbar = (props) => {
+
     return (
         <div className="navbar">
             <div>
-                <p>all</p>
-                <p>owned</p>
-                <p>watched</p>
+                <p onClick={() => { props.allMovies() }}>all</p>
+                <p onClick={() => { props.ownedMovies() }}>owned</p>
+                <p onClick={() => { props.watchedMovies() }}>watched</p>
             </div>
         </div>
     )
 }
 
-export default Navbar
+const mapStateToProps = state => ({
+    movies: state.movies
+})
+
+export default connect(mapStateToProps, { getMovies })(Navbar)
