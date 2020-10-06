@@ -34,8 +34,6 @@ const MovieContainer = (props) => {
 
     const { movies } = props.movies
 
-    console.log(props.movies.movies, displayMovies, movies.filter(movie => movie.owned))
-
     const ownedMovies = () => {
         setToggleDisplay(true)
         setDisplayMovies(movies.filter(movie => movie.owned))
