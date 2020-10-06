@@ -1,63 +1,50 @@
-import React, { Component, useEffect, useState } from 'react'
-import { connect, useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import MovieCard from '../../components/movieCard/MovieCard'
 import { getMovies } from '../../components/actions/movieActions'
-import './MovieContainer.scss'
+import { Pagination } from '../../components/Pagination/Pagination'
 import Navbar from '../navbar/Navbar'
-
-// class MovieContainer extends Component {
-
-//     componentDidMount() {
-//         this.props.getMovies()
-//         console.log(this.props)
-//     }
-
-//     render() {
-//         const { movies } = this.props.movies
-//         console.log(this.props.movies.movies, movies)
-//         return (
-//             <div>
-
-//             </div>
-//         )
-//     }
-// }
+import './MovieContainer.scss'
 
 const MovieContainer = (props) => {
 
-    const [toggleDisplay, setToggleDisplay] = useState(false)
     const [displayMovies, setDisplayMovies] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [moviesPerPage] = useState(100)
 
     useEffect(() => {
-        props.getMovies()
+        const fetchMovies = async () => {
+            await props.getMovies()
+        }
+        fetchMovies()
     }, [])
 
     const { movies } = props.movies
 
     const ownedMovies = () => {
-        setToggleDisplay(true)
         setDisplayMovies(movies.filter(movie => movie.owned))
     }
 
     const watchedMovies = () => {
-        setToggleDisplay(true)
         setDisplayMovies(movies.filter(movie => movie.dates.length > 0))
     }
 
     const allMovies = () => {
-        setToggleDisplay(false)
+        setDisplayMovies(movies)
     }
+
+    const indexOfLastMovie = currentPage * moviesPerPage
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage
+
+    const paginate = (number) => setCurrentPage(number)
 
     return (
         <>
             <Navbar ownedMovies={ownedMovies} watchedMovies={watchedMovies} allMovies={allMovies} />
             <div className='movieList'>
-                {toggleDisplay ?
-                    displayMovies.map(movie => <MovieCard key={movie._id} movie={movie} />)
-                    :
-                    movies.map(movie => <MovieCard key={movie._id} movie={movie} />)
-                }
+                {displayMovies.slice(indexOfFirstMovie, indexOfLastMovie).map(movie => <MovieCard key={movie._id} movie={movie} />)}
             </div>
+            <Pagination paginate={paginate} moviesPerPage={moviesPerPage} totalMovies={displayMovies.length} />
         </>
     )
 }
