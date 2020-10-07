@@ -39,15 +39,36 @@ body{
     box-shadow: $card-shadow;
   border-radius: $card_round;
 
-    h1 {
-      margin: 0px;
-      height: 30px;
-      padding: $card_head_padding;
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
   
+  .cardTitle {
+    color: #0f0f0f;
+  }
+
+  .yearReleased {
+    color: #565350;
+  }
+
+  .director {
+    color: #777672;
+  }
+
+  .ownedCheckbox {
+    color: #19443c;
+  }
+
+  .notOwnedCheckbox{
+    color: #612302;
+  }
+
+  h1 {
+    margin: 0px;
+    height: 30px;
+    padding: $card_head_padding;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    }
+
   .imageIcons {
     margin: 5px;
     display: grid;

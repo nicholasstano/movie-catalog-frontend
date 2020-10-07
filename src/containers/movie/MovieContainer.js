@@ -10,13 +10,14 @@ const MovieContainer = (props) => {
 
     const [displayMovies, setDisplayMovies] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [moviesPerPage] = useState(100)
+    const [moviesPerPage] = useState(25)
 
     useEffect(() => {
-        const fetchMovies = async () => {
-            await props.getMovies()
-        }
-        fetchMovies()
+        // const fetchMovies = async () => {
+        //     await props.getMovies()
+        // }
+        // fetchMovies()
+        props.getMovies()
     }, [])
 
     const { movies } = props.movies
@@ -40,11 +41,12 @@ const MovieContainer = (props) => {
 
     return (
         <>
+            {movies.length > 0 && displayMovies.length === 0 && setDisplayMovies(props.movies.movies)}
             <Navbar ownedMovies={ownedMovies} watchedMovies={watchedMovies} allMovies={allMovies} />
+            <Pagination key={indexOfLastMovie} paginate={paginate} moviesPerPage={moviesPerPage} totalMovies={displayMovies.length} />
             <div className='movieList'>
                 {displayMovies.slice(indexOfFirstMovie, indexOfLastMovie).map(movie => <MovieCard key={movie._id} movie={movie} />)}
             </div>
-            <Pagination paginate={paginate} moviesPerPage={moviesPerPage} totalMovies={displayMovies.length} />
         </>
     )
 }

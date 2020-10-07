@@ -43,18 +43,16 @@ const MovieCard = (props) => {
 
     return (
         <div className="card">
-            <div className="">
-                <h1 className="cardTitle">{title}</h1>
-                <h1>({yearReleased})</h1>
-                <h1>{director}</h1>
-                <h1>
-                    {owned ?
-                        <><CheckBoxOutlinedIcon /></>
-                        :
-                        <><CheckBoxOutlineBlankOutlinedIcon /></>
-                    }
-                </h1>
-            </div>
+            <h1 className="cardTitle">{title}</h1>
+            <h1 className="yearReleased">({yearReleased})</h1>
+            <h1 className="director">{director}</h1>
+            <h1 >
+                {owned ?
+                    <><CheckBoxOutlinedIcon className="ownedCheckbox" /></>
+                    :
+                    <><CheckBoxOutlineBlankOutlinedIcon className="notOwnedCheckbox" /></>
+                }
+            </h1>
             <hr />
             <div className="imageIcons">
                 <img src={images.imdb} alt='ImdbRedirect' onClick={imdbRedirect} />
