@@ -1,0 +1,16 @@
+.movieSearch {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    .movieSearchForm {
+        margin: 5px;
+        .movieSearchInput {
+            background-color: #484848;
+            color: white;
+            border: none;
+        }
+        .movieSearchInput::placeholder {
+            color: orange;
+            border: none;
+        }
+    }
+}

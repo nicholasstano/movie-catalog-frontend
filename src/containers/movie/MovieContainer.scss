@@ -1,3 +1,8 @@
+.searchBarAndPagination {
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
 .movieList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
