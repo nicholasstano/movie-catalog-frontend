@@ -12,7 +12,8 @@ const MovieContainer = (props) => {
 
     const [displayMovies, setDisplayMovies] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [moviesPerPage] = useState(21)
+    const [pageAdjust, setPageAdjust] = useState(false)
+    const [moviesPerPage] = useState(25)
     const [movieSearchTerm, setMovieSearchTerm] = useState('')
 
     useEffect(() => {
@@ -44,12 +45,19 @@ const MovieContainer = (props) => {
 
     const onChange = (searchTerm) => {
         setMovieSearchTerm(searchTerm)
+        setPageAdjust(true)
     }
 
     const searchMovie = () => {
-        return util.searchMovies(displayMovies, movieSearchTerm)
+        let movies = util.searchMovies(displayMovies, movieSearchTerm)
+        if (pageAdjust === true) {
+            setCurrentPage(1)
+            setPageAdjust(false)
+        }
+        return movies
     }
 
+    console.log(searchMovie())
 
     return (
         <>
@@ -60,7 +68,9 @@ const MovieContainer = (props) => {
                 <Pagination key={indexOfLastMovie} paginate={paginate} moviesPerPage={moviesPerPage} totalMovies={movieSearchTerm === '' ? displayMovies.length : searchMovie().length} />
             </div>
             <div className='movieList'>
-                {searchMovie().slice(indexOfFirstMovie, indexOfLastMovie).map(movie => <MovieCard key={movie._id} movie={movie} />)}
+                {
+                    searchMovie().slice(indexOfFirstMovie, indexOfLastMovie).map(movie => <MovieCard key={movie._id} movie={movie} />)
+                }
             </div>
         </>
     )

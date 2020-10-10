@@ -8,6 +8,33 @@ const MovieCard = (props) => {
 
     const { title, director, yearReleased, imdb, wiki, rottentomatoes, owned, dates } = props.movie
 
+    const setBoxShadowColor = () => {
+        let colors = [
+            "#2874A6",
+            "#B03A2E",
+            "#76448A",
+            "#B9770E",
+            "#239B56",
+            "#B7950B",
+            "#82E0AA",
+            "#F5B7B1",
+            "#F9E79F",
+            "#AED6F1",
+            "#FADBD8",
+            "#E5E8E8",
+        ]
+        if (dates.length) {
+            return colors[dates.length - 1]
+        }
+        else {
+            return "gray"
+        }
+    }
+
+    const styles = {
+        boxShadow: `5px 5px 0px 0px ${setBoxShadowColor()}`,
+    }
+
     const rottenTomatoesRedirect = () => {
         window.open(rottentomatoes, '_blank')
     }
@@ -42,7 +69,7 @@ const MovieCard = (props) => {
     }
 
     return (
-        <div className="card">
+        <div style={styles} className="card">
             <h1 className="cardTitle">{title}</h1>
             <h1 className="yearReleased">({yearReleased})</h1>
             <h1 className="director">{director}</h1>
