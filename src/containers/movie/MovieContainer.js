@@ -57,8 +57,6 @@ const MovieContainer = (props) => {
         return movies
     }
 
-    console.log(searchMovie())
-
     return (
         <>
             {movies.length > 0 && displayMovies.length === 0 && setDisplayMovies(props.movies.movies)}
