@@ -46,14 +46,17 @@ body{
   
   .cardTitle {
     color: #0f0f0f;
+    height: 35px;
   }
 
   .yearReleased {
     color: #565350;
+    height: 15px;
   }
 
   .director {
     color: #777672;
+    height: 25px;
   }
 
   .ownedCheckbox {
@@ -66,7 +69,6 @@ body{
 
   h1 {
     margin: 0px;
-    height: 30px;
     padding: $card_head_padding;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 12px;
