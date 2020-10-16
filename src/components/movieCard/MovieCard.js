@@ -10,29 +10,26 @@ const MovieCard = (props) => {
 
     const setBoxShadowColor = () => {
         let colors = [
-            "#2874A6",
-            "#B03A2E",
-            "#76448A",
-            "#B9770E",
-            "#239B56",
-            "#B7950B",
-            "#82E0AA",
-            "#F5B7B1",
-            "#F9E79F",
-            "#AED6F1",
-            "#FADBD8",
-            "#E5E8E8",
+            "blue",
+            "red",
+            "purple",
+            "orange",
+            "green",
+            "yellow",
+            "#FF69B4",
+            "teal",
+            "#cc5500",
         ]
         if (dates.length) {
             return colors[dates.length - 1]
         }
         else {
-            return "gray"
+            return "black"
         }
     }
 
     const styles = {
-        boxShadow: `0 20px 50px ${setBoxShadowColor()}`,
+        boxShadow: `0px 25px 50px ${setBoxShadowColor()}`,
     }
 
     const rottenTomatoesRedirect = () => {
@@ -71,8 +68,8 @@ const MovieCard = (props) => {
     return (
         <div style={styles} className="card">
             <h1 className="cardTitle">{title}</h1>
-            <h1 className="yearReleased">({yearReleased})</h1>
             <h1 className="director">{director}</h1>
+            <h1 className="yearReleased">({yearReleased})</h1>
             <h1 >
                 {owned ?
                     <><CheckBoxOutlinedIcon className="ownedCheckbox" /></>
