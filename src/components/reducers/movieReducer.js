@@ -1,4 +1,4 @@
-import { GET_MOVIES, ADD_MOVIE } from '../actions/types'
+import { GET_MOVIES, ADD_MOVIE, EDIT_MOVIE } from '../actions/types'
 
 const initialState = {
     movies: []
@@ -15,6 +15,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 movies: [...state.movies, action.payload]
+            }
+        case EDIT_MOVIE: 
+            return {
+                ...state,
+                movies: [...state.movies.filter(movie => movie._id !== action.payload._id), action.payload]
             }
         default:
             return state

@@ -1,12 +1,16 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { editMovie } from '../actions/movieActions'
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import CheckBoxOutlineBlankOutlinedIcon from '@material-ui/icons/CheckBoxOutlineBlankOutlined';
+import MovieIcon from '@material-ui/icons/Movie';
 import images from '../../images'
 import './MovieCard.scss'
 
 const MovieCard = (props) => {
 
-    const { title, director, yearReleased, imdb, wiki, rottentomatoes, owned, dates } = props.movie
+    const { _id, reelGood, title, director, yearReleased, owned, dates } = props.movie
 
     const setBoxShadowColor = () => {
         let colors = [
@@ -32,16 +36,8 @@ const MovieCard = (props) => {
         boxShadow: `0px 25px 50px ${setBoxShadowColor()}`,
     }
 
-    const rottenTomatoesRedirect = () => {
-        window.open(rottentomatoes, '_blank')
-    }
-
-    const imdbRedirect = () => {
-        window.open(imdb, '_blank')
-    }
-
-    const wikiRedirect = () => {
-        window.open(wiki, '_blank')
+    const reelGoodRedirect = () => {
+        window.open(reelGood, '_blank')
     }
 
     const returnDates = () => {
@@ -65,6 +61,26 @@ const MovieCard = (props) => {
         }
     }
 
+    const handleEditSubmit = (event) => {
+        event.preventDefault()
+        let newTitleArray = title.split(" ")
+        let newTitleString = ''
+        for (let string of newTitleArray) {
+            newTitleString = newTitleString + string.toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"") + '-'
+        }
+        const updatedMovie = {
+            dates: [...dates],
+            title: title,
+            director: director,
+            owned: owned,
+            yearReleased: yearReleased,
+            reelGood: `https://reelgood.com/movie/${newTitleString}${yearReleased}`
+        }
+        console.log(updatedMovie)
+        props.editMovie(_id, updatedMovie)
+        props.history.push('/')
+    }
+
     return (
         <div style={styles} className="card">
             <h1 className="cardTitle">{title}</h1>
@@ -78,10 +94,8 @@ const MovieCard = (props) => {
                 }
             </h1>
             <hr />
-            <div className="imageIcons">
-                <img src={images.imdb} alt='ImdbRedirect' onClick={imdbRedirect} />
-                <img src={images.rottentomatoes} alt='RottenTomatoesRedirect' onClick={rottenTomatoesRedirect} />
-                <img src={images.wikipedia} alt='WikipediaRedirect' onClick={wikiRedirect} />
+            <div className="movieViewIcon">
+                <MovieIcon onClick={reelGoodRedirect}></MovieIcon>
             </div>
             <hr />
             <div className="datesWatched">{returnDates()}</div>
@@ -89,4 +103,8 @@ const MovieCard = (props) => {
     )
 }
 
-export default MovieCard
+const mapStateToProps = state => ({
+    movies: state.movies
+})
+
+export default withRouter(connect(mapStateToProps, { editMovie })(MovieCard))

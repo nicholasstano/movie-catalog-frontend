@@ -61,16 +61,10 @@ $card-shadow: 5px 5px 0px 0px $point-light;
     text-transform: uppercase;
     }
 
-  .imageIcons {
-    margin: 5px;
-    display: grid;
-    grid-template-columns: 42px 42px 42px;
-    justify-items: center;
-    justify-content: space-between;
-    img {
-      height: 30px;
-      width: 30px;
-    }
+  .movieViewIcon {
+    margin: 3px 0 0 0;
+    text-align: center;
+    color: white;
   } 
 
   hr {
