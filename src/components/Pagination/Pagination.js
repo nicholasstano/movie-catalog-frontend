@@ -16,7 +16,7 @@ export const Pagination = ({ totalMovies, moviesPerPage, paginate }) => {
                     <Button
                         onClick={() => paginate(number)}
                         type="button"
-                        buttonStyle="btn--white--outline"
+                        buttonStyle="btn--dark--outline"
                         buttonSize="btn--small"
                     >{number < 10 ? `0${number}` : number}</Button>
                 </div>

@@ -2,30 +2,17 @@ $black: #282828;
 $point: #484848;
 $point-light: lighten($point, 5%);
 
-$ratio: 1.618;
-$card_width: 138px;
-$card_height: 150px;
-$card_padding: 5px;
-$card-bgcolor: white;
-$card_margin: 7px;
-$card_round: 10px;
 $card-shadow: 5px 5px 0px 0px $point-light;
-$card-padding-basis: 5px;
-$card_head_padding: 0px 0px $card-padding-basis 0px;
 
 *{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
-  background-color: $black;
-}
-
 .card {
-  background-color: $card-bgcolor;
-  width: $card_width;
-  min-height: $card_height;
+  background-color: #484848;
+  width: 138px;
+  min-height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,43 +20,42 @@ body{
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: $card_padding;
-  margin: $card_margin;
+  padding: 5px;
+  margin: 25px 25px;
+  border-radius: 0;
   // -webkit-box-shadow: $card-shadow;
   //   box-shadow: $card-shadow;
-  border-radius: $card_round;
 
   @media (min-width: 900px) {
     width: 175px;
   }
 
-  
   .cardTitle {
-    color: #0f0f0f;
+    color: #FFFFFF;
     height: 35px;
   }
 
   .yearReleased {
-    color: #565350;
+    color: 	#C0C0C0;
     height: 15px;
   }
-
+  
   .director {
     color: #777672;
     height: 25px;
   }
 
   .ownedCheckbox {
-    color: #19443c;
+    color: green;
   }
 
   .notOwnedCheckbox{
-    color: #612302;
+    color: salmon;
   }
 
   h1 {
     margin: 0px;
-    padding: $card_head_padding;
+    padding: 5px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
@@ -87,22 +73,22 @@ body{
     }
   } 
 
-  hr{
+  hr {
     display: block;
     border: none;
     height: 3px;
-    background-color: $point;
+    background-color: #FFFFFF;
     margin: 0px;
   }
   
-  button{
+  button {
     border: none;
     border-radius: 5px;
-    background-color: $point;
+    background-color: black;
     width: 75%;
     margin: 5px auto;
     padding: 5px 10px;
-    color: white;
+    color: black;
     font-family: 'Noto Sans KR', sans-serif;
     text-transform: uppercase;
     font-size: 8px;
@@ -111,6 +97,7 @@ body{
   .datesWatched {
       padding: 2px 0px;
       font-size: 9px;
+      color: #ffffff;
       font-family: 'Noto Sans KR', sans-serif;
       height: 45px;
   }

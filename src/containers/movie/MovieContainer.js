@@ -58,7 +58,7 @@ const MovieContainer = (props) => {
     }
 
     return (
-        <>
+        <div className='movieContainer'>
             {movies.length > 0 && displayMovies.length === 0 && setDisplayMovies(props.movies.movies)}
             <Navbar ownedMovies={ownedMovies} watchedMovies={watchedMovies} allMovies={allMovies} />
             <div className="searchBarAndPagination">
@@ -70,7 +70,7 @@ const MovieContainer = (props) => {
                     searchMovie().slice(indexOfFirstMovie, indexOfLastMovie).map(movie => <MovieCard key={movie._id} movie={movie} />)
                 }
             </div>
-        </>
+        </div>
     )
 }
 

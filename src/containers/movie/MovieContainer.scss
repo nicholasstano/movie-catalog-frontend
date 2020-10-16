@@ -1,22 +1,28 @@
-.searchBarAndPagination {
-    display: grid;
-    grid-template-rows: 15% 85%;
+body {
+    background-color: white;
 }
 
-.movieList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 5px;
-
-    @media (min-width: 900px) {
+.movieContainer {    
+    .searchBarAndPagination {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-rows: 15% 85%;
+    }
+    
+    .movieList {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        justify-content: space-around;
         align-items: center;
-        justify-content: space-between;
-        width: 75%;
-        left: 12.5%;
-        position: relative;
+        padding-top: 5px;
+        
+        @media (min-width: 900px) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            align-items: center;
+            justify-content: space-between;
+            width: 75%;
+            left: 12.5%;
+            position: relative;
+        }
     }
 }
