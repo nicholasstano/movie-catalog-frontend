@@ -64,8 +64,18 @@ $card-shadow: 5px 5px 0px 0px $point-light;
   .movieViewIcon {
     margin: 3px 0 0 0;
     text-align: center;
-    color: white;
+    color:	#C2C2C2;
   } 
+  
+  .movieViewIcon:hover {
+    color: white;
+    .movieIcon {
+      cursor: pointer;
+      outline-style: solid;
+      outline-color: skyblue;
+      outline-width: thin;
+    }
+  }
 
   hr {
     display: block;
