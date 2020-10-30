@@ -95,7 +95,7 @@ const MovieCard = (props) => {
             </h1>
             <hr />
             <div className="movieViewIcon">
-                <MovieIcon className="movieIcon" autofocus onClick={reelGoodRedirect}></MovieIcon>
+                <MovieIcon className="movieIcon" onClick={reelGoodRedirect}></MovieIcon>
             </div>
             <hr />
             <div className="datesWatched">{returnDates()}</div>

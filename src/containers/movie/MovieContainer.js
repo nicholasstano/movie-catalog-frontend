@@ -15,6 +15,7 @@ const MovieContainer = (props) => {
     const [pageAdjust, setPageAdjust] = useState(false)
     const [moviesPerPage] = useState(25)
     const [movieSearchTerm, setMovieSearchTerm] = useState('')
+    const [selectedPage, setSelectedPage] = useState('')
 
     useEffect(() => {
         // const fetchMovies = async () => {
@@ -52,6 +53,7 @@ const MovieContainer = (props) => {
         let movies = util.searchMovies(displayMovies, movieSearchTerm)
         if (pageAdjust === true) {
             setCurrentPage(1)
+            setSelectedPage(0)
             setPageAdjust(false)
         }
         return movies
@@ -63,7 +65,7 @@ const MovieContainer = (props) => {
             <Navbar ownedMovies={ownedMovies} watchedMovies={watchedMovies} allMovies={allMovies} />
             <div className="searchBarAndPagination">
                 <SearchBar onChange={onChange} />
-                <Pagination key={indexOfLastMovie} paginate={paginate} moviesPerPage={moviesPerPage} totalMovies={movieSearchTerm === '' ? displayMovies.length : searchMovie().length} />
+                <Pagination key={indexOfLastMovie} paginate={paginate} moviesPerPage={moviesPerPage} setSelectedPage={setSelectedPage} selectedPage={selectedPage} totalMovies={movieSearchTerm === '' ? displayMovies.length : searchMovie().length} />
             </div>
             <div className='movieList'>
                 {
