@@ -21,28 +21,26 @@ $card-shadow: 5px 5px 0px 0px $point-light;
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 5px;
-  margin: 25px 25px;
+  margin: 25px;
   border-radius: 0;
-  // -webkit-box-shadow: $card-shadow;
-  //   box-shadow: $card-shadow;
 
   @media (min-width: 900px) {
-    width: 175px;
+    width: 138px;
   }
 
   .cardTitle {
     color: #FFFFFF;
-    height: 35px;
+    height: 45px;
   }
 
   .director {
     color: #dedede;
-    height: 25px;
+    height: 35px;
   }
 
   .yearReleased {
     color: 	#C2C2C2;
-    height: 15px;
+    height: 5px;
   }
 
   .ownedCheckbox {
