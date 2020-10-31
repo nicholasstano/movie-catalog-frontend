@@ -83,19 +83,19 @@ const MovieCard = (props) => {
 
     return (
         <div style={styles} className="card">
+            <div className="cardInformation">
             <h1 className="cardTitle">{title}</h1>
             <h1 className="director">{director}</h1>
             <h1 className="yearReleased">({yearReleased})</h1>
-            <h1 >
                 {owned ?
                     <><CheckBoxOutlinedIcon className="ownedCheckbox" /></>
                     :
                     <><CheckBoxOutlineBlankOutlinedIcon className="notOwnedCheckbox" /></>
                 }
-            </h1>
             <hr />
             <div className="movieViewIcon">
                 <MovieIcon className="movieIcon" onClick={reelGoodRedirect}></MovieIcon>
+            </div>
             </div>
             <hr />
             <div className="datesWatched">{returnDates()}</div>

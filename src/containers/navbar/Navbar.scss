@@ -2,7 +2,6 @@ $black: #282828;
 $point: #484848;
 
 .navbar {   
-    padding: 5px;
     top: 0;
     left: 0;
     width: 100%;
@@ -13,7 +12,7 @@ $point: #484848;
     border-color: $point;
     background-color: #484848;
 
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
         margin-left: 10%;
         margin-top: 25px;
         width: 80%;

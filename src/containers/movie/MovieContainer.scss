@@ -11,17 +11,15 @@ body {
     .movieList {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        justify-content: space-around;
-        align-items: center;
+        justify-items: center;
         padding-top: 5px;
         
-        @media (min-width: 900px) {
+        @media (min-width: 1024px) {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            align-items: center;
-            justify-content: space-between;
-            width: 75%;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            justify-items: center;
             left: 12.5%;
+            width: 75%;
             position: relative;
         }
     }

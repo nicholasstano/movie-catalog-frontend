@@ -21,58 +21,91 @@ $card-shadow: 5px 5px 0px 0px $point-light;
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 5px;
-  margin: 25px;
+  margin: 0 0 5px 0;
   border-radius: 0;
 
-  @media (min-width: 900px) {
-    width: 138px;
+  @media (min-width: 1024px) {
+    width: 800px;
+    min-height: 0px;
+    height: 80px;
   }
 
-  .cardTitle {
-    color: #FFFFFF;
-    height: 45px;
-  }
 
-  .director {
-    color: #dedede;
-    height: 35px;
-  }
-
-  .yearReleased {
-    color: 	#C2C2C2;
-    height: 5px;
-  }
-
-  .ownedCheckbox {
-    color: green;
-  }
-
-  .notOwnedCheckbox{
-    color: salmon;
-  }
-
-  h1 {
-    margin: 0px;
-    padding: 5px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
+  .cardInformation {
+    .cardTitle {
+      color: #FFFFFF;
+      height: 45px;
     }
-
-  .movieViewIcon {
-    margin: 3px 0 0 0;
-    text-align: center;
-    color:	#C2C2C2;
-  } 
-  
-  .movieViewIcon:hover {
-    color: white;
-    .movieIcon {
-      cursor: pointer;
-      outline-style: solid;
-      outline-color: skyblue;
-      outline-width: thin;
+    
+    .director {
+      color: #dedede;
+      height: 35px;
     }
+    
+    .yearReleased {
+      color: 	#C2C2C2;
+      height: 5px;
+    }
+    
+    .ownedCheckbox {
+      color: green;
+      display: grid;
+      padding: 10px 0px;
+      
+      @media (min-width: 1024px) {
+        padding: 0px;
+      }
+    }
+    
+    .notOwnedCheckbox{
+      color: salmon;
+      display: grid;
+      padding: 10px 0px;
+      
+      @media (min-width: 1024px) {
+        padding: 0px;
+      }
+    }
+    
+    h1 {
+      margin: 0px;
+      padding: 5px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    
+    .movieViewIcon {
+      margin: 3px 0 0 0;
+      text-align: center;
+      color:	#C2C2C2;
+    } 
+    
+    .movieViewIcon:hover {
+      color: white;
+      .movieIcon {
+        cursor: pointer;
+        outline-style: solid;
+        outline-color: skyblue;
+        outline-width: thin;
+      }
+    }
+    
+    hr {
+      display: block;
+      border: none;
+      height: 3px;
+      background-color: #FFFFFF;
+      margin: 0px;
+      
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
+      @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: 41% 41% 6% 6% 6%;
+      }
   }
 
   hr {
@@ -81,8 +114,12 @@ $card-shadow: 5px 5px 0px 0px $point-light;
     height: 3px;
     background-color: #FFFFFF;
     margin: 0px;
+
+    @media (min-width: 1024px) {
+      height: 1px;
+    }
   }
-  
+    
   button {
     border: none;
     border-radius: 5px;

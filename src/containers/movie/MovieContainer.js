@@ -15,7 +15,7 @@ const MovieContainer = (props) => {
     const [pageAdjust, setPageAdjust] = useState(false)
     const [moviesPerPage] = useState(25)
     const [movieSearchTerm, setMovieSearchTerm] = useState('')
-    const [selectedPage, setSelectedPage] = useState('')
+    const [selectedPage, setSelectedPage] = useState(1)
 
     useEffect(() => {
         // const fetchMovies = async () => {
@@ -53,7 +53,7 @@ const MovieContainer = (props) => {
         let movies = util.searchMovies(displayMovies, movieSearchTerm)
         if (pageAdjust === true) {
             setCurrentPage(1)
-            setSelectedPage(0)
+            setSelectedPage(1)
             setPageAdjust(false)
         }
         return movies
