@@ -12,28 +12,28 @@ const MovieCard = (props) => {
 
     const { _id, reelGood, title, director, yearReleased, owned, dates } = props.movie
 
-    const setBoxShadowColor = () => {
+    const colorsBasedOnTimesWatched = () => {
         let colors = [
-            "blue",
-            "red",
-            "purple",
-            "orange",
-            "green",
-            "yellow",
-            "#FF69B4",
-            "teal",
-            "#cc5500",
+            "#8AB8FF",
+            "#FF6D6D",
+            "#D36DFF",
+            "#FFBF6D",
+            "#6DFF88",
+            "#FFFB6D",
+            "#FF6DED",
+            "#6DFFF4",
+            "#D5FF6D",
         ]
         if (dates.length) {
             return colors[dates.length - 1]
         }
         else {
-            return "black"
+            return "#FFFFFF"
         }
     }
 
     const styles = {
-        boxShadow: `0px 25px 50px ${setBoxShadowColor()}`,
+        boxShadow: `0px 25px 50px ${'black'}`,
     }
 
     const reelGoodRedirect = () => {
@@ -82,9 +82,9 @@ const MovieCard = (props) => {
     }
 
     return (
-        <div style={styles} className="card">
+        <div className="card" style={{ borderBottom: `1px solid ${colorsBasedOnTimesWatched()}`}}>
             <div className="cardInformation">
-            <h1 className="cardTitle">{title}</h1>
+            <h1 className="cardTitle" style={{ color: colorsBasedOnTimesWatched()}}>{title}</h1>
             <h1 className="director">{director}</h1>
             <h1 className="yearReleased">({yearReleased})</h1>
                 {owned ?
